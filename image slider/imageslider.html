@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: gray;
+            width: 75%;
+            margin: auto;
+            height: 450px;
+            position: relative;
+        }
+
+        .container img{
+        height: 100% ;
+        width: 100%;}
+
+        .container button{
+            height: 75px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+
+        #prev{
+            left: 0;
+            background-color: pink;
+            
+        }
+
+        #next{
+            right: 0;
+            background-color: pink  ;
+            
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="" alt="" id="slider">
+    <button id="prev">&lt;&lt</button>
+    <button id="next">&gt;&gt</button>
+</div>
+
+    <script>
+        let images = ["b1.jpg","bg1.jpg"]
+        let index = 0
+        let slider_img = document.getElementById("slider")
+        slider_img.src = "./images/" + images[index]
+
+        function next() {
+               index++
+            if(index==images.length){
+            index = 0
+            }
+        
+            slider_img.src = "./images/" + images[index]
+        
+        }
+
+        const previous =() =>{
+            index--
+            if(index<0){
+            index = images.length-1
+        }
+        slider_img.src = "./images/" + images[index]
+        
+        }
+        document.getElementById("next").addEventListener("click",next)
+ document.getElementById("prev").addEventListener("click",previous)
+
+    </script>
+</body>
+</html>
